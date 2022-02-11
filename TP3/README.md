@@ -25,4 +25,4 @@ En supposant que le maillage contienne une unique surface sans bord, alors son g
 
 ## Ajout d'un nouveau programme
 
-Tous les fichiers au format c++ présents dans le répertoire ```src``` seront considérés comme des nouveaux programmes CGAL par la commande ```cgal_create_CMakeLists``` lancée depuis ```src```. Pensez à utiliser un sous-répertoire si vous voulez faire des ```include```.
+fandisk + angle avec les voisin + otsu separe bien toutes les faces

@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/audric/GeoAlgo/GeoAlgoTP3/TP3/src/genre.cpp
+/home/audric/GeoAlgo/GeoAlgoTP3/TP3/src/for_CGAL.hpp
 CGAL/Exact_predicates_inexact_constructions_kernel.h
 -
 CGAL/boost/graph/graph_traits_Polyhedron_3.h
@@ -15,16 +15,30 @@ CGAL/IO/Polyhedron_iostream.h
 -
 CGAL/squared_distance_3.h
 -
+
+/home/audric/GeoAlgo/GeoAlgoTP3/TP3/src/genre.cpp
+for_CGAL.hpp
+/home/audric/GeoAlgo/GeoAlgoTP3/TP3/src/for_CGAL.hpp
 iostream
 -
 fstream
 -
 random
 -
-otsu_histogramme.hpp
-/home/audric/GeoAlgo/GeoAlgoTP3/TP3/src/otsu_histogramme.hpp
+save_to_file.hpp
+/home/audric/GeoAlgo/GeoAlgoTP3/TP3/src/save_to_file.hpp
+seuillage.hpp
+/home/audric/GeoAlgo/GeoAlgoTP3/TP3/src/seuillage.hpp
+segmentation.hpp
+/home/audric/GeoAlgo/GeoAlgoTP3/TP3/src/segmentation.hpp
+local_property.hpp
+/home/audric/GeoAlgo/GeoAlgoTP3/TP3/src/local_property.hpp
 
-/home/audric/GeoAlgo/GeoAlgoTP3/TP3/src/otsu_histogramme.hpp
+/home/audric/GeoAlgo/GeoAlgoTP3/TP3/src/local_property.hpp
+for_CGAL.hpp
+/home/audric/GeoAlgo/GeoAlgoTP3/TP3/src/for_CGAL.hpp
+
+/home/audric/GeoAlgo/GeoAlgoTP3/TP3/src/otsu.hpp
 stdio.h
 -
 math.h
@@ -33,4 +47,24 @@ stdlib.h
 -
 string.h
 -
+
+/home/audric/GeoAlgo/GeoAlgoTP3/TP3/src/save_to_file.hpp
+for_CGAL.hpp
+/home/audric/GeoAlgo/GeoAlgoTP3/TP3/src/for_CGAL.hpp
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+
+/home/audric/GeoAlgo/GeoAlgoTP3/TP3/src/segmentation.hpp
+for_CGAL.hpp
+/home/audric/GeoAlgo/GeoAlgoTP3/TP3/src/for_CGAL.hpp
+
+/home/audric/GeoAlgo/GeoAlgoTP3/TP3/src/seuillage.hpp
+for_CGAL.hpp
+/home/audric/GeoAlgo/GeoAlgoTP3/TP3/src/for_CGAL.hpp
+otsu.hpp
+/home/audric/GeoAlgo/GeoAlgoTP3/TP3/src/otsu.hpp
 
