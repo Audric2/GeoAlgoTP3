@@ -1,3 +1,0 @@
-# build
-
-Dossier de compilation

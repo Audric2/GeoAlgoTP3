@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/local.isima.fr/aucatinon/Bureau/TP3/src/genre.cpp
+/home/audric/GeoAlgo/GeoAlgoTP3/TP3/src/genre.cpp
 CGAL/Exact_predicates_inexact_constructions_kernel.h
 -
 CGAL/boost/graph/graph_traits_Polyhedron_3.h
@@ -20,5 +20,17 @@ iostream
 fstream
 -
 random
+-
+otsu_histogramme.hpp
+/home/audric/GeoAlgo/GeoAlgoTP3/TP3/src/otsu_histogramme.hpp
+
+/home/audric/GeoAlgo/GeoAlgoTP3/TP3/src/otsu_histogramme.hpp
+stdio.h
+-
+math.h
+-
+stdlib.h
+-
+string.h
 -
 

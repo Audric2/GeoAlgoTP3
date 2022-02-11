@@ -1,4 +1,4 @@
-# Install script for directory: /home/local.isima.fr/aucatinon/Bureau/TP3/src
+# Install script for directory: /home/audric/GeoAlgo/GeoAlgoTP3/TP3/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

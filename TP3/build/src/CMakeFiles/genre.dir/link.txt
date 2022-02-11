@@ -1,1 +1,1 @@
-/usr/bin/c++    -rdynamic CMakeFiles/genre.dir/genre.cpp.o  -o genre -lmpfr -lgmpxx -lgmp /usr/lib/x86_64-linux-gnu/libCGAL.so.13.0.2 -lmpfr -lgmpxx -lgmp 
+/usr/bin/c++     CMakeFiles/genre.dir/genre.cpp.o  -o genre  /usr/lib/x86_64-linux-gnu/libmpfr.so /usr/lib/x86_64-linux-gnu/libgmp.so 
