@@ -70,8 +70,7 @@ void saveClasses(std::ofstream & file, Polyhedron & P, Facet_int_map & classes){
 	// Initialisation d'un vetceur de int pour stocker les couleurs
 	std::vector<int> vecCol = std::vector<int>(nbClasses);
 
-	std::random_device dev;
-	std::mt19937 rng(dev());
+	std::mt19937 rng(time(nullptr));
 	std::uniform_int_distribution<std::mt19937::result_type> dist24(0,0xFFFFFF);
 	// Initialisation d'une couleur aleatoire par classe
 	for(int i = 0;i<nbClasses;++i){

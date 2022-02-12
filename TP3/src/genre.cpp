@@ -41,8 +41,7 @@ int main(int argc, char* argv[])
 	
 	Vector_3 v(1,0,0);
 	// Calcule d'une propriete local pour chaque face
-	Facet_double_map propriete = moyAngleVoisin(mesh);
-	for (Facet_iterator i = mesh.facets_begin(); i != mesh.facets_end(); ++i) printf("%lf\n",propriete[i]);
+	Facet_double_map propriete = perimetre(mesh);
 	// Seuillage de la dite propriete
 	Facet_int_map segmentation = seuillageOtsu(mesh, propriete);
 	// Creation d'une Autre segmentation base sur le seuillage precedent et les composantes connexes
