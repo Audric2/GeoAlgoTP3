@@ -39,12 +39,16 @@ int main(int argc, char* argv[])
 	unsigned int genus = (2 - euler) / 2;
 	std::cout << "En supposant que le maillage contienne une unique surface sans bord, alors son genre est de " << genus << std::endl;
 	
+	/*
+		Test des fonctions implementees
+	*/
+	
 	Vector_3 v(1,0,0);
-	// Calcule d'une propriete local pour chaque face
+	// Calcul d'une propriete locale pour chaque face
 	Facet_double_map propriete = perimetre(mesh);
 	// Seuillage de la dite propriete
 	Facet_int_map segmentation = seuillageOtsu(mesh, propriete);
-	// Creation d'une Autre segmentation base sur le seuillage precedent et les composantes connexes
+	// Creation d'une autre segmentation basee sur le seuillage precedent et les composantes connexes
 	Facet_int_map classes = segmentationParCC(mesh, segmentation);
 
 	// On sauvegarde le resultat dans un fichier .off	
