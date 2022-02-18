@@ -7,9 +7,8 @@
 void parcoursFaces(int classe, Facet_handle & face, Facet_int_map & classes,Facet_int_map & segmentation){
 	// On verifie si la face a deja une classe
 	auto result = classes.find(face);
-    if (result != classes.end()) {
-		return;
-    }
+	if (result != classes.end()) return;
+	
 	// On affecte une classe a la face
 	classes[face] = classe;
 	// Puis on relance la fonction depuis tous les voisins qui ont la meme segmentation que nous
@@ -32,7 +31,7 @@ Facet_int_map segmentationParCC(Polyhedron & mesh, Facet_int_map & segmentation)
 	// On lance un parcours depuis toutes les faces avec une classe qui augmente
 	for (Facet_iterator face = mesh.facets_begin(); face != mesh.facets_end(); ++face) {
 		parcoursFaces(classe++, face, classes, segmentation);
-    }
+	}
 	return classes;
 }
 
