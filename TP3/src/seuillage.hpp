@@ -59,7 +59,7 @@ Facet_int_map seuillageOtsu(Polyhedron & mesh, Facet_double_map & propriete,int 
 	// Creation d'un histogramme de taille n
 	std::vector<int> histogramme(n);
 	Facet_iterator face = mesh.facets_begin();
-	double maxHisto = propriete[face], minHisto = propriete[face],rangeHisto = 1;
+	double maxHisto = propriete[face], minHisto = propriete[face], rangeHisto = 1;
 	// On cherche le minimum et le maximum de l'histo
 	for (++face  ; face != mesh.facets_end(); ++face) {
 		maxHisto = std::max(propriete[face], maxHisto);
