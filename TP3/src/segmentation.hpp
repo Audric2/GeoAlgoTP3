@@ -24,7 +24,7 @@ void parcoursFaces(int classe, Facet_handle & face, Facet_int_map & classes,Face
 	}while(++halfedgeIt != face->facet_begin());
 }
 
-// Regroupement des faces connexes quand elle sont de la meme segmentation
+// Regroupement des faces connexes quand elles sont de la meme segmentation
 Facet_int_map segmentationParCC(Polyhedron & mesh, Facet_int_map & segmentation){
 	Facet_int_map classes;
 	int classe = 0;

@@ -1,13 +1,13 @@
 #ifndef LOCAL_PROPERTY_HPP
 #define LOCAL_PROPERTY_HPP
 /**
- * Fichier ou les calculs de proprietes locales par face sont definies
+ * Fonction de calcul de proprietes locales sur les faces
 */
 #include "for_CGAL.hpp"
 
-// Calcul le perimetre de toutes les faces d'un Polyhedron
+// Calcule le perimetre de toutes les faces d'un Polyhedron
 std::map<Facet_handle, double> perimetre(Polyhedron & mesh){
-	// Creation du map de stockage 
+	// Creation de la map de stockage 
 	std::map<Facet_handle, double> perimetres;
 	// Boucle sur toutes les faces
 	for (Facet_iterator face = mesh.facets_begin(); face != mesh.facets_end(); ++face) {
@@ -29,12 +29,12 @@ double aireFace(Facet_handle face){
 	double area = 0;
 	// Recuperation du circulateur de demi-arrete
 	Halfedge_around_facet_circulator halfedgeIt = face->facet_begin();
-	//Recuperation du premier vertex 
+	// Recuperation du premier vertex 
 	Point_3 v0 = halfedgeIt->vertex()->point();halfedgeIt++;
-	//Recuperation du deuxieme vertex 
+	// Recuperation du deuxieme vertex 
 	Point_3 v1,v2 = halfedgeIt->vertex()->point();halfedgeIt++;
 	do{
-		//On prend les points decrivant le prochain triangle
+		// On prend les points decrivant le prochain triangle
 		v1 = v2;
 		v2 = halfedgeIt->vertex()->point();
 		// On calcule l'aire de ce triangle qu'on ajoute a l'aire total
@@ -90,7 +90,7 @@ std::map<Facet_handle, double> minAngle(Polyhedron & mesh){
 	return angles;
 }
 
-// Calcul l'angle entre la normal d'une face et un vecteur v pour toutes les faces d'un Polyhedron
+// Calcul l'angle entre la normale d'une face et un vecteur v pour toutes les faces d'un Polyhedron
 std::map<Facet_handle, double> angleFaceV(Polyhedron & mesh,Vector_3 & v){
 
 	std::map<Facet_handle, double> angles;
@@ -112,7 +112,7 @@ std::map<Facet_handle, double> angleFaceV(Polyhedron & mesh,Vector_3 & v){
 	return angles;
 }
 
-// Calcul la moyenne des angles d'une face avec ces voisins pour toutes les faces d'un Polyhedron
+// Calcul la moyenne des angles d'une face avec ses voisins pour toutes les faces d'un Polyhedron
 std::map<Facet_handle, double> moyAngleVoisin(Polyhedron & mesh){
 	std::map<Facet_handle, double> angles;
 	// Boucle sur toutes les faces
@@ -133,24 +133,24 @@ std::map<Facet_handle, double> moyAngleVoisin(Polyhedron & mesh){
 		do{
 			// Recuperation d'une face adjacente
 			auto faceAdjacente = halfedgeIt->opposite()->facet();
-			if(faceAdjacente!=NULL){// Si on est pas sur un bord
+			if(faceAdjacente!=NULL){ // Si on est pas sur un bord
 				// Recuperation du circulateur de demi-arrete de la face adjacente
 				Halfedge_around_facet_circulator halEdgeAdjacentIt = faceAdjacente->facet_begin();
 				auto lasthalEdgeAdjacentIt = halEdgeAdjacentIt;
 				halEdgeAdjacentIt++;
-				// Calcul de la normal de la face adjacente
+				// Calcul de la normale de la face adjacente
 				auto normalF = CGAL::normal(
 					lasthalEdgeAdjacentIt->opposite()->vertex()->point(),
 					lasthalEdgeAdjacentIt->vertex()->point(),
 					halEdgeAdjacentIt->vertex()->point());
-				// Calcul de l'angle entre la normal et la normal de la face adjacente
+				// Calcul de l'angle entre la normale et la normale de la face adjacente
 				double angle = CGAL::approximate_angle(normal, normalF);
 				// Ajout de l'angle pour la moyenne
 				sumAngle += angle;
 				nbVoisin++;
 			}
 		}while(++halfedgeIt != face->facet_begin());
-		// Association d'une face a l'angle moyen de sa normal a la normales des faces voisines
+		// Association d'une face a l'angle moyen entre sa normale et les normales des faces voisines
 		angles[face] = sumAngle/nbVoisin;
 	}
 	return angles;

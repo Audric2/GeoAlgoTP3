@@ -2,7 +2,7 @@
 #define SAVE_TO_FILE_HPP
 
 /**
- * Fichier ou sont defini les sauveagardes dans des fichiers
+ * Fonctions de sauvegarde des maillages
  */
 
 #include "for_CGAL.hpp"
@@ -12,10 +12,9 @@
 
 /** 
  * Sauvegarde le Polyhedron au format OFF 
- * donne une couleur a chaque face en fonction de son perimetre
+ * Donne une couleur a chaque face en fonction de son perimetre
 */
 void savePer(std::ofstream & file, Polyhedron & P, Facet_double_map & perimetres){
-	// Write polyhedron in Object File Format (OFF).
 	CGAL::set_ascii_mode(file);
 	// Entete du fichier .OFF
 	file << "OFF" << std::endl << P.size_of_vertices() << ' '
@@ -49,10 +48,9 @@ void savePer(std::ofstream & file, Polyhedron & P, Facet_double_map & perimetres
 
 /** 
  * Sauvegarde le Polyhedron au format OFF 
- * donne une couleur a chaque face en fonction de sa classe
+ * Donne une couleur a chaque face en fonction de sa classe
 */
 void saveClasses(std::ofstream & file, Polyhedron & P, Facet_int_map & classes){
-	// Write polyhedron in Object File Format (OFF).
 	CGAL::set_ascii_mode(file);
 	// Entete du fichier .OFF
 	file << "OFF" << std::endl << P.size_of_vertices() << ' '

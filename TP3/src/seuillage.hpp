@@ -22,7 +22,7 @@ Facet_int_map seuillageSimple(Polyhedron & mesh, Facet_double_map & propriete){
 	return segmentation;
 }
 
-// Effectue un seuillage en coupant en n selon l'ordre des propriete
+// Effectue un seuillage en coupant en n selon l'ordre des proprietes
 Facet_int_map seuillageMultiple(Polyhedron & mesh, Facet_double_map & propriete,int n){
 	Facet_int_map segmentation;
 	int nbFaces = 0;
@@ -39,7 +39,7 @@ Facet_int_map seuillageMultiple(Polyhedron & mesh, Facet_double_map & propriete,
 		int index = (i+1) * (nbFaces-1) / n;
 		seuils[i] = vValeurs[index];
 	}
-	// Ne gere pas les egalite de seuils
+	// Ne gere pas les egalites de seuils
 
 	for (  Facet_iterator face = mesh.facets_begin(); face != mesh.facets_end(); ++face) {
 		int index = 0;
@@ -65,16 +65,16 @@ Facet_int_map seuillageOtsu(Polyhedron & mesh, Facet_double_map & propriete,int 
 		maxHisto = std::max(propriete[face], maxHisto);
 		minHisto = std::min(propriete[face], minHisto);
 	}
-	//Verification que toutes les propriete ne valent pas la meme chose
+	// Verification que toutes les propriete ne valent pas la meme chose
 	if(minHisto != maxHisto){
 		rangeHisto = maxHisto - minHisto;
 	}
-	// On remplie l'histogramme grace au propriete des faces
+	// On remplit l'histogramme grace aux proprietes des faces
 	for (Facet_iterator face = mesh.facets_begin(); face != mesh.facets_end(); ++face) {
 		int index = round((double)(n-1) * (propriete[face] - minHisto ) / rangeHisto);
 		histogramme[index]++;
 	}
-	// On recupere lindex du seuil grace a la methode d'otsu
+	// On recupere l'index du seuil grace a la methode d'otsu
 	int thresholdindex = otsu(histogramme);
 	// On convertit l'index de seuil en une valeur de seuil 
 	double threshold = rangeHisto * (double)(thresholdindex+0.5) / (double)(n-1) + minHisto;
