@@ -28,7 +28,7 @@ void parcoursFaces(int classe, Facet_handle & face, Facet_int_map & classes,Face
 Facet_int_map segmentationParCC(Polyhedron & mesh, Facet_int_map & segmentation){
 	Facet_int_map classes;
 	int classe = 0;
-	// On lance un parcours depuis toutes les faces avec une classe qui augmente
+	// On lance un parcours depuis toutes les faces en incrémentant le nombre de classes créées
 	for (Facet_iterator face = mesh.facets_begin(); face != mesh.facets_end(); ++face) {
 		parcoursFaces(classe++, face, classes, segmentation);
 	}
